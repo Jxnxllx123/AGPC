@@ -1,0 +1,611 @@
+/* ===============================
+   COLOUR SYSTEM
+================================ */
+:root {
+  --brand-primary: #2563eb;
+  --brand-dark: #1e40af;
+  --text-main: #1f2933;
+  --text-body: #4b5563;
+  --text-muted: #9ca3af;
+  --bg-white: #ffffff;
+  --bg-light: #f9fafb;
+  --bg-dark: #111827;
+  --border-light: #e5e7eb;
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===============================
+   BODY / PARAGRAPHS
+================================ */
+body, p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #222;
+}
+
+/* Headings h5: stronger font for emphasis */
+h5 {
+  font-family: 'Inter', sans-serif; 
+  font-weight: 700;     /* semi-bold */
+  font-size: 1.6rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em; /* slight tracking for clarity */
+}
+
+.footer p {
+  color: #b0b7c3;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.myNav {
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 10;
+}
+
+.myNav .navbar-logo {
+  height: 90px;
+  margin-right: 0.5rem;
+}
+
+.myNav .navbar-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.myNav .nav-link {
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-weight: 500;
+  margin-left: 0.25rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.myNav .nav-link:hover,
+.myNav .nav-link.active {
+  background-color: #eef2ff;
+  color: var(--brand-primary);
+}
+
+.myNav .dropdown-toggle::after {
+  margin-left: 0.4rem;
+}
+
+.navbar-toggler {
+  border: 1px solid var(--border-light);
+  padding: 0.4rem 0.6rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(31,41,51,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ===============================
+   LANGUAGE TOGGLE BUTTON
+================================ */
+.lang-toggle {
+  all: unset;
+  display: inline-block;
+  border: 1px solid var(--brand-primary);
+  color: var(--brand-primary);
+  background-color: transparent;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+/* Fix hero spacing */
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  
+  padding: 0 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: url("../Images/Church.jpg") center/cover no-repeat;
+}
+
+/* DARK OVERLAY */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* adjust darkness */
+}
+
+/* Keep text above overlay */
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+  color: white;
+  
+}
+
+.hero-section h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero-section p {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.hero-sermons{
+  background: url("../Images/Sermons/Sermons.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 42%;
+  min-height:40vh;
+}
+
+.hero-visitus{
+  background: url("../Images/Visit/Visit\ Us.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 25%;
+  min-height:40vh;
+}
+
+.hero-give{
+  background: url("../Images/Give/Offerings.jpg") center/cover no-repeat;
+  min-height:40vh;
+}
+
+.hero-events{
+  background: url("../Images/Events/Events.jpg") center/cover no-repeat;
+  min-height:40vh;
+}
+
+.hero-connect{
+  background: url("../Images/Connect/Connect.jpg") center/cover no-repeat;
+  min-height:40vh;
+}
+
+/* ===============================
+   GENERAL SECTIONS
+================================ */
+section {
+  padding: 6rem 1.5rem;
+}
+
+section + section {
+  margin-top: 2rem;
+}
+
+
+@media (min-width: 768px) {
+  section {
+    padding: 7rem 1.5rem;
+  }
+  section + section {
+    margin-top: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  section {
+    padding: 8rem 1.5rem;
+  }
+}
+
+section:nth-of-type(even):not(.hero-section):not(.cta-section) {
+  background-color: var(--bg-light);
+}
+
+section h2 {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.info-section,
+.light-section {
+  background-color: var(--bg-light);
+}
+
+.light-section {
+  text-align: center;
+}
+
+.light-section p {
+  margin: 1rem auto 2rem;
+}
+
+/* ===============================
+   CARDS
+================================ */
+.card {
+  flex: 1;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+#latest-sermons .col-md-6 {
+  display: flex;
+}
+
+#latest-sermons .card {
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* ===============================
+   SERMON CARDS
+================================ */
+.sermon-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f4f4f4;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  width: 240px;
+  flex: 0 0 auto;
+}
+
+.sermon-thumb {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.sermon-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sermon-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.sermon-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sermon-info {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sermon-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.sermon-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Scrollable container for mobile */
+.sermon-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.sermon-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.sermon-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--brand-primary);
+  border-radius: 4px;
+}
+
+/* DESKTOP GRID (LG+) */
+@media (min-width: 992px) {
+  #english-grid .col,
+  #chinese-grid .col,
+  #combined-grid .col {
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-bottom: 30px;
+  }
+
+  .sermon-card {
+    width: 100%;
+  }
+}
+
+/* ===============================
+   PAGINATION
+================================ */
+#en-pagination,
+#zh-pagination,
+#both-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* more spacing */
+  margin-top: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.page-number {
+  cursor: pointer;
+  padding: 4px 8px;
+  color: #555;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.page-number.active {
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.page-number.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brand-primary);
+  margin-top: 6px; /* distance between text and underline */
+}
+
+.page-arrow {
+  cursor: pointer;
+  padding: 4px 8px;
+  color: var(--brand-primary);
+  font-weight: 600;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.page-arrow.disabled {
+  color: #aaa;
+  cursor: default;
+}
+
+.page-arrow:hover:not(.disabled) {
+  background-color: #eef2ff;
+}
+
+/* ===============================
+   CTA  (Call To Action)
+================================ */
+.cta-section {
+  background-color: var(--brand-primary);
+  color: white;
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+
+.cta-section h2 {
+  color: #e5e7eb;
+}
+
+.cta-section p {
+  color: #e5e7eb;
+  margin: 1rem auto 2rem;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  background-color: var(--bg-dark);
+  color: var(--text-muted);
+  padding: 3rem 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ===============================
+   Ministries Carousel & Modals
+================================ */
+.ministry-carousel .carousel-item {
+  min-height: 400px;
+}
+
+.ministry-carousel img {
+  transition: 0.3s;
+}
+
+.ministry-carousel img:hover {
+  transform: scale(1.03);
+}
+
+.modal-dialog {
+  max-width: 800px;   /* fixed width */
+  width: 90%;
+}
+
+.modal-content {
+  min-height: 600px;   /* keeps consistent height */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);  /* dark circle */
+  border-radius: 50%;
+  padding: 18px;
+  background-size: 60%;
+}
+
+.ministry-bg {
+    position: relative;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon in corner */
+.ministry-icon-corner {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 80px;
+    opacity: 0.85;
+    filter: brightness(0) invert(1);
+    z-index: 2;
+}
+
+.ministry-card {
+    background-color: #89c8fc;
+    border: none;
+}
+
+/* Fix ministries section */
+.content-section {
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============================
+   Events Carousel & Modals
+================================ */
+/* ===============================
+   SWIPER BASE
+================================ */
+.swiper {
+  width: 100%;
+  padding: 40px 0;
+}
+
+/* ===============================
+   FIX SWIPER HEIGHT (CRITICAL)
+================================ */
+.upcoming-events-swiper,
+.past-events-swiper {
+  height: auto;
+}
+
+.upcoming-events-swiper .swiper-wrapper,
+.past-events-swiper .swiper-wrapper {
+  height: auto;
+  align-items: center;
+}
+
+.upcoming-events-swiper .swiper-slide,
+.past-events-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===============================
+   EVENT CARD STRUCTURE
+================================ */
+.event-card {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+   FLYER (IMAGE)
+================================ */
+.event-flyer {
+  width: 100%;
+}
+
+.event-flyer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===============================
+   TEXT SECTION
+================================ */
+.event-info {
+  padding: 12px 14px;
+  text-align: center;
+}
+
+/* ===============================
+   🟣 UPCOMING EVENTS (BIG HERO)
+================================ */
+.upcoming-events-swiper .swiper-slide {
+  width: 75%; /* enables peeking */
+}
+
+.upcoming-events-swiper .event-flyer {
+  height: 320px; /* adjust if needed */
+}
+
+/* ===============================
+   🔵 PAST EVENTS (SMALL CARDS)
+================================ */
+.past-events-swiper .swiper-slide {
+  width: 260px; /* fixed card width */
+}
+
+.past-events-swiper .event-flyer {
+  height: 180px;
+}
+
+/* ===============================
+   PAGINATION (FIX GAP ISSUE)
+================================ */
+.upcoming-events-swiper .swiper-pagination,
+.past-events-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 10px;
+}
