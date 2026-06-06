@@ -3,6 +3,8 @@ let currentLang = "en";
 function setLanguage(lang) {
   currentLang = lang;
 
+  localStorage.setItem("language", lang);
+
   // update all static text (data-en / data-zh)
   document.querySelectorAll("[data-en], [data-zh]").forEach(el => {
   const en = el.getAttribute("data-en");
@@ -51,6 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("languageToggle");
 
   if (!btn) return;
+
+  const savedLang = localStorage.getItem("language") || "en";
+  setLanguage(savedLang);
 
   btn.addEventListener("click", () => {
     const newLang = currentLang === "en" ? "zh" : "en";
