@@ -31,6 +31,10 @@ window.EVENTS = [
       en: "Youth Fellowship",
       zh: "青年团契"
     },
+    subtitle: {
+      en: "Every Saturday",
+      zh: "每逢星期六"
+     },
     startDate: "2026-02-07",
     startTime: "16:00",
     endTime: "18:00",
@@ -45,6 +49,10 @@ window.EVENTS = [
       en: "Junior Youth Fellowship",
       zh: "少年团契"
     },
+    subtitle: {
+      en: "Every Sunday",
+      zh: "每逢星期日"
+     },
     startDate: "2026-02-08",
     startTime: "13:00",
     endTime: "14:30",
@@ -57,6 +65,10 @@ window.EVENTS = [
     title: {
       en: "Choir",
       zh: "诗班"
+    },
+     subtitle: {
+      en: "Every Sunday",
+      zh: "每逢星期日"
     },
     startDate: "2026-02-08",
     startTime: "13:00",
