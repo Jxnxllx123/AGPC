@@ -641,3 +641,35 @@ section h2 {
     transform: translateY(-2px);
     opacity: 0.8;
 }
+/* ===================================
+SUNDAY WORSHIP MAIN PAGE HERO SECTION
+==================================== */
+
+.service-times {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.service-block {
+    margin-bottom: 1.25rem;
+}
+
+.service-block strong {
+    display: block;
+    color: var(--brand-primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+}
+
+.service-block p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+    color: var(--text-body);
+}
+
+.cry-room {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-body);
+}
