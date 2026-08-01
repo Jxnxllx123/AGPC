@@ -78,6 +78,11 @@ function renderEvent(event, containerId, isPast = false) {
 
         <div class="event-info">
           <h5 class="mb-1">${event.title[currentLang]}</h5>
+          ${event.subtitle ? `
+          <p class="event-subtitle mb-1">
+              ${event.subtitle[currentLang]}
+          </p>
+          ` : ""}
           <p class="text-muted mb-2">${dateLine}</p>
 
           <a class="btn btn-outline-primary btn-sm"
