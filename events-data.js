@@ -49,7 +49,7 @@ window.EVENTS = [
     startTime: "13:00",
     endTime: "14:30",
     type: "recurring",
-    recurrence: "weekly“
+    recurrence: "weekly"
   },
 
   {
@@ -62,7 +62,7 @@ window.EVENTS = [
     startTime: "13:00",
     endTime: "14:45",
     type: "recurring",
-    recurrence: "weekly“
+    recurrence: "weekly"
   },
 
   {
