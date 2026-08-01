@@ -642,40 +642,110 @@ section h2 {
     opacity: 0.8;
 }
 /* ===================================
-   SUNDAY WORSHIP (HOME PAGE)
+   HOME PAGE INFO SECTION
 =================================== */
 
+.info-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    transition: all .25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0,0,0,.12);
+}
+
+/* Icon */
+
+.info-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 1.25rem;
+
+    border-radius: 50%;
+    background: #eef4ff;
+
+    color: var(--brand-primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+}
+
+/* Worship */
+
 .service-times {
-    margin-top: 1rem;
+    max-width: 340px;
+    margin: 1.5rem auto 0;
 }
 
 .service-block {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .service-block:not(:last-of-type) {
     border-bottom: 1px solid var(--border-light);
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
 }
 
 .service-block strong {
-    display: block;
-    color: var(--brand-primary);
-    font-size: 1.25rem;
+
+    display: inline-block;
+
+    background: var(--brand-primary);
+    color: white;
+
+    padding: 6px 16px;
+
+    border-radius: 999px;
+
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 0.35rem;
+
+    margin-bottom: .75rem;
 }
 
 .service-block p {
-    margin: 0.15rem 0;
-    font-size: 0.95rem;
+    margin: .35rem 0;
+    font-size: .95rem;
     line-height: 1.45;
     color: var(--text-body);
 }
 
 .cry-room {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    font-weight: 500;
+    margin-top: 1.5rem;
+    text-align: center;
+
+    font-size: .95rem;
+    font-weight: 600;
     color: var(--text-body);
+}
+
+/* Buttons */
+
+.info-card .btn {
+    border-radius: 999px;
+    padding: .65rem 1.4rem;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+
+    .service-times {
+        max-width: 100%;
+    }
+
+    .info-card {
+        margin-bottom: 1rem;
+    }
+
 }
