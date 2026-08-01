@@ -38,6 +38,32 @@ window.EVENTS = [
     recurrence: "weekly",
     skipFifthSaturday: true
   },
+  
+  {
+    id: "junior-youth-fellowship",
+    title: {
+      en: "Junior Youth Fellowship",
+      zh: "少年团契"
+    },
+    startDate: "2026-02-08",
+    startTime: "13:00",
+    endTime: "14:30",
+    type: "recurring",
+    recurrence: "weekly“
+  },
+
+  {
+    id: "choir",
+    title: {
+      en: "Choir",
+      zh: "诗班"
+    },
+    startDate: "2026-02-08",
+    startTime: "13:00",
+    endTime: "14:45",
+    type: "recurring",
+    recurrence: "weekly“
+  },
 
   {
     id: "christmas-2025",
