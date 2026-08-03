@@ -32,8 +32,8 @@ window.EVENTS = [
       zh: "青年团契"
     },
     subtitle: {
-      en: "Every Saturday",
-      zh: "每逢星期六"
+      en: "Every Saturday (except 5th Saturdays)",
+      zh: "每逢星期六（第五个星期六除外）"
      },
     startDate: "2026-02-07",
     startTime: "16:00",
