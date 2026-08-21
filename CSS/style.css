@@ -25,18 +25,20 @@
 /* ===============================
    BODY / PARAGRAPHS
 ================================ */
-body, p {
+body, p, h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
+}
+
+body, p {
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #222;
+  color: var(--text-main); /* Updated to use your variable instead of #222 */
 }
 
 /* Headings h5: stronger font for emphasis */
 h5 {
-  font-family: 'Roboto', sans-serif; 
-  font-weight: 700;     /* semi-bold */
+  font-weight: 700;     /* bold */
   font-size: 1.6rem;
   color: #111;
   margin-bottom: 0.5rem;
