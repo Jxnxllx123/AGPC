@@ -31,8 +31,8 @@ function setLanguage(lang) {
 
   if (historyLink) {
     historyLink.href = lang === "en"
-      ? "Documents/AGPC-History-English.pdf"
-      : "Documents/AGPC-History-Chinese.pdf";
+      ? "CHURCH HISTORY_EN.pdf"
+      : "CHURCH HISTORY_CH.pdf";
   }
 
   // re-render dynamic sections
