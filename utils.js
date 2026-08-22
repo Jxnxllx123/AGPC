@@ -26,6 +26,15 @@ function setLanguage(lang) {
   }
 });
 
+    // update history document link
+  const historyLink = document.getElementById("historyDocumentLink");
+
+  if (historyLink) {
+    historyLink.href = lang === "en"
+      ? "Documents/AGPC-History-English.pdf"
+      : "Documents/AGPC-History-Chinese.pdf";
+  }
+
   // re-render dynamic sections
   if (typeof renderHomepageSermons === "function") {
     renderHomepageSermons(2);
