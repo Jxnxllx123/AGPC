@@ -121,6 +121,11 @@ window.EVENTS = [
       zh: "中国事工聚会"
     },
 
+    subtitle: {
+      en: "Every 2 weeks",
+      zh: "每两周"
+    },
+
     startDate: "2026-09-27",
     startTime: "13:00",
     endTime: "15:00",
