@@ -172,6 +172,10 @@ function getNextOccurrence(event) {
       date.setDate(date.getDate() + 7);
     }
 
+    if (event.recurrence === "biweekly") {
+      date.setDate(date.getDate() + 14);
+    }
+
     if (event.recurrence === "monthly") {
       date.setMonth(date.getMonth() + 1);
     }
@@ -183,7 +187,6 @@ function getNextOccurrence(event) {
     startDate: date.toISOString()
   };
 }
-
 
 // =========================================================
 // ⏰ TIME FORMAT
