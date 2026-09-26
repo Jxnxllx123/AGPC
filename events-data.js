@@ -111,7 +111,24 @@ window.EVENTS = [
 
     type: "recurring",
     recurrence: "weekly"
+  },
+
+  {
+    id: "chinese-migrant-worker-meeting",
+
+    title: {
+      en: "Chinese Migrant Workers' Meeting",
+      zh: "中国事工聚会"
+    },
+
+    startDate: "2026-09-27",
+    startTime: "13:00",
+    endTime: "15:00",
+
+    type: "recurring",
+    recurrence: "monthly"
   }
+
 
 
   // ⬆️ ADD NEW EVENTS ABOVE THIS LINE ONLY ⬆️
