@@ -34,8 +34,13 @@ function loadEvents() {
       finalEvent = getNextOccurrence(event);
     }
 
+    // Combine date + time for accurate comparison
+    const eventDateTime = new Date(
+      `${finalEvent.startDate.split("T")[0]}T${finalEvent.startTime || "00:00"}`
+    );
+
     // Only show upcoming events
-    if (new Date(finalEvent.startDate) >= now) {
+    if (eventDateTime >= now) {
       renderEvent(finalEvent);
     }
 
@@ -76,7 +81,10 @@ function renderEvent(event) {
 
         ${event.flyer ? `
           <div class="event-flyer">
-            <img src="${event.flyer}" alt="${event.title[currentLang]}">
+            <img
+              src="${event.flyer}"
+              alt="${event.title[currentLang]}"
+            >
           </div>
         ` : ""}
 
@@ -97,13 +105,13 @@ function renderEvent(event) {
           </p>
 
           ${event.gallery?.length ? `
-            <a class="btn btn-outline-primary btn-sm"
-               onclick='openEventGallery("${event.id}")'>
-
+            <a
+              class="btn btn-outline-primary btn-sm"
+              onclick='openEventGallery("${event.id}")'
+            >
               ${currentLang === "zh"
                 ? "了解更多"
                 : "Learn More"}
-
             </a>
           ` : ""}
 
@@ -121,6 +129,11 @@ function renderEvent(event) {
 // =========================================================
 
 function initUpcomingSwiper() {
+
+  const swiperElement =
+    document.querySelector(".upcoming-events-swiper");
+
+  if (!swiperElement) return;
 
   const slideCount =
     document.querySelectorAll(
@@ -162,25 +175,143 @@ function initUpcomingSwiper() {
 
 function getNextOccurrence(event) {
 
-  let date = new Date(event.startDate);
+  let date = new Date(
+    `${event.startDate}T${event.startTime || "00:00"}`
+  );
 
   const now = new Date();
 
-  while (date < now) {
+  // -----------------------------------------
+  // EVERY WEEK
+  // -----------------------------------------
 
-    if (event.recurrence === "weekly") {
+  if (event.recurrence === "weekly") {
+
+    while (date < now) {
+
       date.setDate(date.getDate() + 7);
+
+      // Skip fifth Saturday if required
+      if (
+        event.skipFifthSaturday &&
+        isFifthSaturday(date)
+      ) {
+
+        date.setDate(date.getDate() + 7);
+
+      }
+
     }
 
-    if (event.recurrence === "biweekly") {
-      date.setDate(date.getDate() + 14);
-    }
+    // Also make sure the starting date itself
+    // isn't a fifth Saturday
+    while (
+      event.skipFifthSaturday &&
+      isFifthSaturday(date)
+    ) {
 
-    if (event.recurrence === "monthly") {
-      date.setMonth(date.getMonth() + 1);
+      date.setDate(date.getDate() + 7);
+
     }
 
   }
+
+
+  // -----------------------------------------
+  // EVERY 2 WEEKS
+  // -----------------------------------------
+
+  else if (event.recurrence === "biweekly") {
+
+    while (date < now) {
+
+      date.setDate(date.getDate() + 14);
+
+      // Skip fifth Saturday if required
+      if (
+        event.skipFifthSaturday &&
+        isFifthSaturday(date)
+      ) {
+
+        date.setDate(date.getDate() + 14);
+
+      }
+
+    }
+
+    while (
+      event.skipFifthSaturday &&
+      isFifthSaturday(date)
+    ) {
+
+      date.setDate(date.getDate() + 14);
+
+    }
+
+  }
+
+
+  // -----------------------------------------
+  // SAME DATE EVERY MONTH
+  // -----------------------------------------
+
+  else if (event.recurrence === "monthly") {
+
+    const originalDay =
+      new Date(event.startDate).getDate();
+
+    while (date < now) {
+
+      // Move to first day of next month first
+      date.setDate(1);
+
+      date.setMonth(date.getMonth() + 1);
+
+      // Find last day of new month
+      const lastDay =
+        new Date(
+          date.getFullYear(),
+          date.getMonth() + 1,
+          0
+        ).getDate();
+
+      // Use original day if possible,
+      // otherwise use last day of month
+      date.setDate(
+        Math.min(originalDay, lastDay)
+      );
+
+    }
+
+  }
+
+
+  // -----------------------------------------
+  // SPECIFIC WEEKDAY EVERY MONTH
+  // -----------------------------------------
+  //
+  // Example:
+  //
+  // recurrence: "monthly-weekday"
+  // week: 2
+  // dayOfWeek: 6
+  //
+  // = 2nd Saturday of every month
+  //
+  // -----------------------------------------
+
+  else if (
+    event.recurrence === "monthly-weekday"
+  ) {
+
+    date =
+      getMonthlyWeekdayOccurrence(
+        event,
+        now
+      );
+
+  }
+
 
   return {
     ...event,
@@ -188,21 +319,196 @@ function getNextOccurrence(event) {
   };
 }
 
+
+// =========================================================
+// 📅 MONTHLY WEEKDAY OCCURRENCE
+// =========================================================
+//
+// week:
+// 1 = first
+// 2 = second
+// 3 = third
+// 4 = fourth
+// 5 = fifth
+//
+// dayOfWeek:
+// 0 = Sunday
+// 1 = Monday
+// 2 = Tuesday
+// 3 = Wednesday
+// 4 = Thursday
+// 5 = Friday
+// 6 = Saturday
+// =========================================================
+
+function getMonthlyWeekdayOccurrence(
+  event,
+  now
+) {
+
+  let year = now.getFullYear();
+  let month = now.getMonth();
+
+  while (true) {
+
+    const date =
+      getNthWeekdayOfMonth(
+        year,
+        month,
+        event.dayOfWeek,
+        event.week
+      );
+
+    if (date) {
+
+      const eventDateTime =
+        new Date(date);
+
+      const [hours, minutes] =
+        (event.startTime || "00:00")
+          .split(":")
+          .map(Number);
+
+      eventDateTime.setHours(
+        hours,
+        minutes,
+        0,
+        0
+      );
+
+      if (eventDateTime >= now) {
+
+        // Skip fifth Saturday if required
+        if (
+          event.skipFifthSaturday &&
+          isFifthSaturday(date)
+        ) {
+
+          month++;
+
+          if (month > 11) {
+            month = 0;
+            year++;
+          }
+
+          continue;
+        }
+
+        return date;
+
+      }
+
+    }
+
+    month++;
+
+    if (month > 11) {
+      month = 0;
+      year++;
+    }
+
+  }
+}
+
+
+// =========================================================
+// 📅 FIND NTH WEEKDAY OF MONTH
+// =========================================================
+
+function getNthWeekdayOfMonth(
+  year,
+  month,
+  dayOfWeek,
+  week
+) {
+
+  const firstDay =
+    new Date(
+      year,
+      month,
+      1
+    );
+
+  const firstDayOfWeek =
+    firstDay.getDay();
+
+  const offset =
+    (dayOfWeek - firstDayOfWeek + 7) % 7;
+
+  const day =
+    1 +
+    offset +
+    ((week - 1) * 7);
+
+  const date =
+    new Date(
+      year,
+      month,
+      day,
+      0,
+      0,
+      0
+    );
+
+  // Make sure the date didn't spill
+  // into the next month
+  if (
+    date.getMonth() !== month
+  ) {
+
+    return null;
+
+  }
+
+  return date;
+}
+
+
+// =========================================================
+// 📅 CHECK FOR FIFTH SATURDAY
+// =========================================================
+
+function isFifthSaturday(date) {
+
+  // Not a Saturday
+  if (date.getDay() !== 6) {
+    return false;
+  }
+
+  const day =
+    date.getDate();
+
+  // 29, 30 or 31 can be the fifth Saturday
+  return day >= 29;
+}
+
+
 // =========================================================
 // ⏰ TIME FORMAT
 // =========================================================
 
-function formatTimeRange(start, end) {
+function formatTimeRange(
+  start,
+  end
+) {
 
   const format = (time) => {
 
-    const [h, m] = time.split(":").map(Number);
+    const [h, m] =
+      time.split(":")
+        .map(Number);
 
-    const suffix = h >= 12 ? "PM" : "AM";
+    const suffix =
+      h >= 12
+        ? "PM"
+        : "AM";
 
-    const hour = h % 12 || 12;
+    const hour =
+      h % 12 || 12;
 
-    return `${hour}:${m.toString().padStart(2, "0")} ${suffix}`;
+    return `${hour}:${m
+      .toString()
+      .padStart(2, "0")} ${suffix}`;
 
   };
 
@@ -220,19 +526,31 @@ let currentIndex = 0;
 
 function openEventGallery(eventId) {
 
-  const event = EVENTS.find(e => e.id === eventId);
+  const event =
+    EVENTS.find(
+      e => e.id === eventId
+    );
 
-  if (!event || !event.gallery?.length) return;
+  if (
+    !event ||
+    !event.gallery?.length
+  ) {
+    return;
+  }
 
-  currentGallery = event.gallery;
+  currentGallery =
+    event.gallery;
 
   currentIndex = 0;
 
   renderGallery();
 
-  const modal = new bootstrap.Modal(
-    document.getElementById("galleryModal")
-  );
+  const modal =
+    new bootstrap.Modal(
+      document.getElementById(
+        "galleryModal"
+      )
+    );
 
   modal.show();
 }
@@ -245,34 +563,58 @@ function openEventGallery(eventId) {
 function renderGallery() {
 
   const mainImg =
-    document.getElementById("mainGalleryImage");
+    document.getElementById(
+      "mainGalleryImage"
+    );
 
   const strip =
-    document.getElementById("thumbnailStrip");
+    document.getElementById(
+      "thumbnailStrip"
+    );
 
-  if (!mainImg || !strip) return;
+  if (
+    !mainImg ||
+    !strip
+  ) {
+    return;
+  }
 
-  mainImg.src = currentGallery[currentIndex];
+  mainImg.src =
+    currentGallery[
+      currentIndex
+    ];
 
   strip.innerHTML = "";
 
-  currentGallery.forEach((img, index) => {
+  currentGallery.forEach(
+    (img, index) => {
 
-    strip.innerHTML += `
-      <img src="${img}"
-           onclick="switchImage(${index})"
-           style="
-             width:70px;
-             height:70px;
-             object-fit:cover;
-             cursor:pointer;
-             border:2px solid ${index === currentIndex ? "white" : "transparent"};
-             opacity:${index === currentIndex ? "1" : "0.6"};
-             border-radius:8px;
-           ">
-    `;
+      strip.innerHTML += `
+        <img
+          src="${img}"
+          onclick="switchImage(${index})"
+          style="
+            width:70px;
+            height:70px;
+            object-fit:cover;
+            cursor:pointer;
+            border:2px solid ${
+              index === currentIndex
+                ? "white"
+                : "transparent"
+            };
+            opacity:${
+              index === currentIndex
+                ? "1"
+                : "0.6"
+            };
+            border-radius:8px;
+          "
+        >
+      `;
 
-  });
+    }
+  );
 }
 
 
