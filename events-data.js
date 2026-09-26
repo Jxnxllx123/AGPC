@@ -126,7 +126,7 @@ window.EVENTS = [
     endTime: "15:00",
 
     type: "recurring",
-    recurrence: "monthly"
+    recurrence: "biweekly"
   }
 
 
