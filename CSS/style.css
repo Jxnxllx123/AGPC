@@ -1,16 +1,36 @@
 /* ===============================
    COLOUR SYSTEM
 ================================ */
+/* =========================================
+   AGPC COLOUR SYSTEM
+========================================= */
+
 :root {
-  --brand-primary: #2563eb;
-  --brand-dark: #1e40af;
-  --text-main: #1f2933;
-  --text-body: #4b5563;
-  --text-muted: #9ca3af;
-  --bg-white: #ffffff;
-  --bg-light: #f9fafb;
-  --bg-dark: #111827;
-  --border-light: #e5e7eb;
+    /* Brand palette */
+    --brand-primary: #567C8D; /* Teal */
+    --brand-dark: #2F4156;    /* Navy */
+    --brand-light: #C8D9E6;   /* Sky blue */
+    --brand-beige: #F5EFEB;   /* Warm beige */
+
+    /* Text */
+    --text-main: #2F4156;
+    --text-body: #354653;
+    --text-muted: #637481;
+    --text-on-dark: #FFFFFF;
+
+    /* Backgrounds */
+    --bg-white: #FFFFFF;
+    --bg-light: #F5EFEB;
+    --bg-sky-blue: #C8D9E6;
+    --bg-dark: #2F4156;
+
+    /* Borders */
+    --border-light: #D9E0E4;
+
+    /* Buttons */
+    --button-primary: #2F4156;
+    --button-hover: #243548;
+    --button-accent: #456878;
 }
 
 /* ===============================
