@@ -39,18 +39,16 @@
     --text-main: #2F4156;
     --text-body: #354653;
     --text-muted: #637481;
-    --text-on-dark: #FFFFFF;
+
+    --border-light: #D9E0E4;
+
+    --button-primary: #567C8D;
+    --button-hover: #456878;
 
     --bg-white: #FFFFFF;
     --bg-light: #F5EFEB;
     --bg-sky-blue: #C8D9E6;
     --bg-dark: #2F4156;
-
-    --border-light: #D9E0E4;
-
-    --button-primary: #2F4156;
-    --button-hover: #243548;
-    --button-accent: #456878;
 }
 
 /* =====================================================
