@@ -218,53 +218,54 @@ img {
 ----------------------------------------------------- */
 /* Shared buttons */
 
-.btn-primary {
-    border-color: var(--brand-dark);
-    background-color: var(--brand-dark);
-    color: #FFFFFF;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    border-color: var(--button-hover);
-    background-color: var(--button-hover);
-    color: #FFFFFF;
-}
-
-.btn-outline-primary {
-    border-color: var(--brand-primary);
-    color: var(--brand-primary);
-}
-
-.btn-outline-primary:hover,
-.btn-outline-primary:focus {
-    border-color: var(--brand-primary);
-    background-color: var(--brand-primary);
-    color: #FFFFFF;
-}
-
-.btn {
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
 .cta-section {
     padding: 4.5rem 1.5rem;
     background-color: var(--brand-dark);
-    color: var(--text-on-dark);
+    color: var(--brand-white);
     text-align: center;
 }
 
 .cta-section h2 {
     margin-bottom: 1rem;
-    color: var(--text-on-dark);
+    color: var(--brand-white);
 }
 
 .cta-section p {
     max-width: 650px;
     margin: 0 auto 1.5rem;
-    color: #E5ECF1;
+    color: var(--brand-light);
+}
+
+.cta-section .social-links a {
+    color: var(--brand-light);
+}
+
+.cta-section .social-links a:hover {
+    color: var(--brand-white);
+}
+
+/* Shared CTA button */
+.btn-cta {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--brand-primary);
+    border-radius: 999px;
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+    border-color: var(--brand-light);
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+    transform: translateY(-2px);
 }
 
 /* -----------------------------------------------------
@@ -273,15 +274,15 @@ img {
 
 .footer {
     padding: 2rem 1.5rem;
-    background-color: var(--bg-dark);
-    color: #D9E0E4;
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
     font-size: 0.9rem;
     text-align: center;
 }
 
 .footer p {
     margin-bottom: 0;
-    color: #D9E0E4;
+    color: var(--brand-light);
     font-size: 0.9rem;
 }
 
@@ -425,6 +426,64 @@ section h2 {
 /* =====================================================
    04. HOMEPAGE — index.html
 ===================================================== */
+
+/* =====================================================
+   04. HOMEPAGE — index.html
+===================================================== */
+
+/* Service information */
+.info-section {
+    background-color: var(--brand-beige);
+}
+
+.info-section .info-card {
+    background-color: var(--brand-white);
+}
+
+.info-section .info-icon {
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+.info-section .service-block strong {
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+}
+
+/* About section */
+.content-section {
+    background-color: var(--brand-white);
+}
+
+/* Latest Sermons */
+.content-section.sermons-section {
+    background-color: var(--brand-light);
+}
+
+.sermons-section #latest-sermons .card {
+    background-color: var(--brand-white);
+}
+
+/* Upcoming Events */
+.content-section.events-section {
+    background-color: var(--brand-beige);
+}
+
+.events-section .event-card {
+    background-color: var(--brand-white);
+}
+
+/* 5. Service information icons */
+.info-section .info-icon {
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+/* 6. Service time badges */
+.info-section .service-block strong {
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+}
 
 /* Latest sermons layout */
 
