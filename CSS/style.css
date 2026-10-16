@@ -13,8 +13,6 @@
        3.4 Footer
        3.5 Hero Sections
        3.6 General Sections
-       3.7 Shared Cards
-       3.8 Pagination
    04. Homepage (index.html)
    05. AGPC (AGPC.html)
    06. Connect (Connect.html)
@@ -426,78 +424,6 @@ section h2 {
     }
 }
 
-/* -----------------------------------------------------
-   3.7 SHARED CARDS
------------------------------------------------------ */
-
-.card {
-    flex: 1;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-
-/* -----------------------------------------------------
-   3.8 SHARED PAGINATION
------------------------------------------------------ */
-
-#en-pagination,
-#zh-pagination,
-#both-pagination {
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
-    gap: 16px;
-    font-family: "Roboto", sans-serif;
-}
-
-.page-number {
-    position: relative;
-    padding: 4px 8px;
-    color: #555;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.page-number.active {
-    color: var(--brand-primary);
-    font-weight: 700;
-}
-
-.page-number.active::after {
-    display: block;
-    width: 100%;
-    height: 2px;
-    margin-top: 6px;
-    background-color: var(--brand-primary);
-    content: "";
-}
-
-.page-arrow {
-    padding: 4px 8px;
-    color: var(--brand-primary);
-    font-weight: 600;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease;
-}
-
-.page-arrow.disabled {
-    color: #aaa;
-    cursor: default;
-}
-
-.page-arrow:hover:not(.disabled) {
-    background-color: #eef2ff;
-}
-
-
 /* =====================================================
    04. HOMEPAGE — index.html
 ===================================================== */
@@ -626,6 +552,18 @@ section h2 {
 .social-links a:hover {
     transform: translateY(-2px);
     opacity: 0.8;
+}
+
+.card {
+    flex: 1;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
 }
 
 
@@ -816,6 +754,60 @@ section h2 {
 /* =====================================================
    10. SERMONS — Sermons.html
 ===================================================== */
+
+/* -----------------------------------------------------
+    SHARED PAGINATION
+----------------------------------------------------- */
+
+#en-pagination,
+#zh-pagination,
+#both-pagination {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 16px;
+    font-family: "Roboto", sans-serif;
+}
+
+.page-number {
+    position: relative;
+    padding: 4px 8px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-number.active {
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.page-number.active::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 6px;
+    background-color: var(--brand-primary);
+    content: "";
+}
+
+.page-arrow {
+    padding: 4px 8px;
+    color: var(--brand-primary);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.page-arrow.disabled {
+    color: #aaa;
+    cursor: default;
+}
+
+.page-arrow:hover:not(.disabled) {
+    background-color: #eef2ff;
+}
 
 /* Sermon cards */
 
