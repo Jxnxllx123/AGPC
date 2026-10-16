@@ -431,7 +431,245 @@ section h2 {
 /* =====================================================
    04. HOMEPAGE — index.html
 ===================================================== */
+/* ==========================================
+   AGPC HOMEPAGE — WARM EDITORIAL HERO
+   ========================================== */
 
+.hero-homepage {
+    --hero-ink: #30465d;
+    --hero-muted: #547e92;
+    --hero-cream: #f7f2ec;
+    --hero-clay: #c98267;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--hero-cream);
+    color: var(--hero-ink);
+    text-align: center;
+    padding: clamp(76px, 10vw, 132px) 24px
+             clamp(64px, 8vw, 100px);
+}
+
+/* Soft, organic decorative shapes */
+
+.hero-homepage .hero-art {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.hero-homepage .hero-art-one {
+    width: clamp(180px, 27vw, 360px);
+    aspect-ratio: 1;
+    top: -100px;
+    right: -90px;
+    background: rgba(199, 220, 232, 0.55);
+}
+
+.hero-homepage .hero-art-two {
+    width: clamp(150px, 21vw, 280px);
+    aspect-ratio: 1;
+    bottom: -125px;
+    left: -80px;
+    background: rgba(201, 130, 103, 0.12);
+}
+
+/* Central content */
+
+.hero-homepage .hero-content {
+    position: relative;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.hero-homepage .hero-eyebrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    color: var(--hero-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+}
+
+.hero-homepage .hero-eyebrow-line {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--hero-clay);
+}
+
+.hero-homepage h1 {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--hero-ink);
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2.65rem, 6vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+.hero-homepage .hero-subtitle {
+    max-width: 590px;
+    margin: 26px auto 0;
+    color: #596777;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.8;
+}
+
+/* Call-to-action buttons */
+
+.hero-homepage .hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.hero-homepage .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 13px 23px;
+    border: 1px solid var(--hero-ink);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.hero-homepage .hero-button-primary {
+    background: var(--hero-ink);
+    color: #fff;
+}
+
+.hero-homepage .hero-button-primary:hover {
+    background: var(--hero-muted);
+    border-color: var(--hero-muted);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.hero-homepage .hero-button-secondary {
+    background: transparent;
+    color: var(--hero-ink);
+}
+
+.hero-homepage .hero-button-secondary:hover {
+    background: #fff;
+    border-color: var(--hero-muted);
+    color: var(--hero-muted);
+    transform: translateY(-2px);
+}
+
+.hero-homepage .hero-button:focus-visible {
+    outline: 3px solid var(--hero-clay);
+    outline-offset: 4px;
+}
+
+/* Personal, welcoming detail */
+
+.hero-homepage .hero-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 34px;
+    color: var(--hero-muted);
+    font-size: 0.88rem;
+}
+
+.hero-homepage .hero-note i {
+    color: var(--hero-clay);
+}
+
+.hero-homepage .hero-bottom-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+    color: var(--hero-clay);
+    font-size: 0.8rem;
+}
+
+.hero-homepage .hero-bottom-mark span {
+    width: 36px;
+    height: 1px;
+    background: rgba(84, 126, 146, 0.35);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 575.98px) {
+    .hero-homepage {
+        padding: 68px 20px 54px;
+    }
+
+    .hero-homepage .hero-eyebrow {
+        gap: 8px;
+        margin-bottom: 23px;
+        font-size: 0.62rem;
+        letter-spacing: 0.11em;
+    }
+
+    .hero-homepage .hero-eyebrow-line {
+        width: 18px;
+    }
+
+    .hero-homepage h1 {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+    }
+
+    .hero-homepage .hero-subtitle {
+        margin-top: 20px;
+    }
+
+    .hero-homepage .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 300px;
+        margin: 28px auto 0;
+    }
+
+    .hero-homepage .hero-button {
+        width: 100%;
+    }
+
+    .hero-homepage .hero-note {
+        margin-top: 26px;
+        font-size: 0.82rem;
+    }
+
+    .hero-homepage .hero-bottom-mark {
+        margin-top: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-homepage .hero-button {
+        transition: none;
+    }
+
+    .hero-homepage .hero-button:hover {
+        transform: none;
+    }
+}
 /* =====================================================
    04. HOMEPAGE — index.html
 ===================================================== */
