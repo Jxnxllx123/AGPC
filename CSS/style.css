@@ -14,8 +14,7 @@
        3.5 Hero Sections
        3.6 General Sections
        3.7 Shared Cards
-       3.8 Sermon Components
-       3.9 Pagination
+       3.8 Pagination
    04. Homepage (index.html)
    05. AGPC (AGPC.html)
    06. Connect (Connect.html)
@@ -445,94 +444,7 @@ section h2 {
 
 
 /* -----------------------------------------------------
-   3.8 SHARED SERMON COMPONENTS
------------------------------------------------------ */
-
-/* Sermon cards */
-
-.sermon-card {
-    display: flex;
-    width: 240px;
-    flex: 0 0 auto;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #f4f4f4;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-.sermon-thumb {
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-}
-
-.sermon-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsive sermon video */
-
-.sermon-video-wrapper {
-    position: relative;
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-}
-
-.sermon-video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Sermon information */
-
-.sermon-info {
-    display: flex;
-    padding: 0.75rem 1rem;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.sermon-title {
-    margin: 0;
-    font-size: 1.05rem;
-}
-
-.sermon-meta {
-    margin: 0;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-/* Horizontal sermon scrolling */
-
-.sermon-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-}
-
-.sermon-scroll::-webkit-scrollbar {
-    height: 8px;
-}
-
-.sermon-scroll::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: var(--brand-primary);
-}
-
-
-/* -----------------------------------------------------
-   3.9 SHARED PAGINATION
+   3.8 SHARED PAGINATION
 ----------------------------------------------------- */
 
 #en-pagination,
@@ -905,6 +817,88 @@ section h2 {
    10. SERMONS — Sermons.html
 ===================================================== */
 
+/* Sermon cards */
+
+.sermon-card {
+    display: flex;
+    width: 240px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f4f4f4;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sermon-thumb {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.sermon-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive sermon video */
+
+.sermon-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+}
+
+.sermon-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sermon information */
+
+.sermon-info {
+    display: flex;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sermon-title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.sermon-meta {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Horizontal sermon scrolling */
+
+.sermon-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.sermon-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.sermon-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--brand-primary);
+}
+
 /* Desktop sermon grid */
 
 #english-grid .col,
@@ -912,7 +906,6 @@ section h2 {
 #combined-grid .col {
     /* Desktop layout is defined in the responsive section. */
 }
-
 
 /* =====================================================
    11. VISIT US — Visit Us.html
