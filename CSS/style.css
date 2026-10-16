@@ -30,21 +30,27 @@
 ===================================================== */
 
 :root {
+    /* Brand palette */
     --brand-primary: #567C8D;
     --brand-dark: #2F4156;
     --brand-light: #C8D9E6;
     --brand-beige: #F5EFEB;
     --brand-white: #FFFFFF;
 
+    /* Text colours */
     --text-main: #2F4156;
     --text-body: #354653;
     --text-muted: #637481;
+    --text-on-dark: #FFFFFF;
 
+    /* Borders */
     --border-light: #D9E0E4;
 
+    /* Buttons */
     --button-primary: #567C8D;
     --button-hover: #456878;
 
+    /* Backgrounds */
     --bg-white: #FFFFFF;
     --bg-light: #F5EFEB;
     --bg-sky-blue: #C8D9E6;
